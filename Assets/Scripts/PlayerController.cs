@@ -33,18 +33,24 @@ namespace Workshop
 
         [Header("Swim")]
         [SerializeField] public bool inWater = false;
-        [SerializeField] public float inWaterTreshold = 5f; //berlaku untuk oksigen dan air
-        private float defaultInWaterTreshold;
+        [SerializeField] public float inWaterTreshold = 5f; //berlaku untuk oksigen dan air, harusnya bukan inWaterTreshold melainkan isDrowningTreshold
+        private float defaultInWaterTreshold; //harusnya defaultIsDrowningTreshold
+        private float defaultMass;
+        [SerializeField] public bool isDrowning = false;
+
 
         [Header("SuperPower")]
         [SerializeField] public bool redSerum = false;
         [SerializeField] public bool blueSerum = false;
         [SerializeField] public bool yellowSerum = false;
 
+
+
         private void Awake()
         {
             rigidbody2D = GetComponent<Rigidbody2D>();
             defaultInWaterTreshold = inWaterTreshold;
+            defaultMass = rigidbody2D.mass;
         }
 
         private void Update()
@@ -53,22 +59,32 @@ namespace Workshop
             rightTouched = Physics2D.OverlapBox(rightfoot.position, new Vector2(size.x, size.y), 0, maskDinding) != null ? true : false;
 
             //left & right walk direction
+            if (Input.GetKeyUp(KeyCode.A))
+            {
+                moveDirection = new Vector2(0f, 0f);
+            }
+
+            if (Input.GetKeyUp(KeyCode.D))
+            {
+                moveDirection = new Vector2(0f, 0f);
+            }
+
+            //prevent stick to wall
             if (Input.GetKey(KeyCode.A) && !leftTouched)
             {
                 moveDirection = new Vector2(-1f, 0f);
             }
-            if (Input.GetKeyUp(KeyCode.A) )
+            else
             {
                 moveDirection = new Vector2(0f, 0f);
             }
+
             if (Input.GetKey(KeyCode.D) && !rightTouched)
             {
                 moveDirection = new Vector2(1f, 0f);
             }
-            if (Input.GetKeyUp(KeyCode.D) )
-            {
-                moveDirection = new Vector2(0f, 0f);
-            }
+
+            
 
             //jump function
             isGrounded = Physics2D.OverlapCircle(foot.position, radius, mask) != null ? true : false;
@@ -99,16 +115,17 @@ namespace Workshop
             }
 
 
+            //timer
             if(blueSerum)
             {
                 //death by suffocation
-                if (!inWater)
+                if (!isDrowning)
                 {
                     inWaterTreshold -= Time.deltaTime;
                     if (inWaterTreshold < 0f)
                     {
                         Debug.Log("ded by suffocation");
-                        inWater = true;
+                        isDrowning = true;
                     }
                 }
                 else
@@ -120,7 +137,7 @@ namespace Workshop
             if(yellowSerum)
             {
                 //death by drowning
-                if (inWater)
+                if (isDrowning)
                 {
                     inWaterTreshold -= Time.deltaTime;
                     if (inWaterTreshold < 0f)

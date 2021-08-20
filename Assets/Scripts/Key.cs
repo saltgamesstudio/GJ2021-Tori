@@ -9,7 +9,11 @@ public class Key : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D othercollider)
     {
         var player = othercollider.GetComponent<PlayerController>();
-        player.haveKey = true;
-        Destroy(gameObject);
+        if (player != null)
+        {
+            player.haveKey = true;
+            Destroy(gameObject);
+        }
+        
     }
 }

@@ -20,12 +20,16 @@ public class BlueSerum : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D othercollider)
     {
         player = othercollider.GetComponent<PlayerController>();
-        player.blueSerum = true;
+        if(player!=null)
+        {
+            player.blueSerum = true;
+            player.isDrowning = false;
 
-        //despawn item
-        gameObject.GetComponent<SpriteRenderer>().sprite = null;
-        gameObject.GetComponent<Collider2D>().enabled = false;
-        timeIsRunning = true;
+            //despawn item
+            gameObject.GetComponent<SpriteRenderer>().sprite = null;
+            gameObject.GetComponent<Collider2D>().enabled = false;
+            timeIsRunning = true;
+        }
     }
 
     private void Update()

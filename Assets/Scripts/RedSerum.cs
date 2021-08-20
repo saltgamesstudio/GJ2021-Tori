@@ -21,15 +21,19 @@ public class RedSerum : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D othercollider)
     {
         player = othercollider.GetComponent<PlayerController>();
-        player.redSerum = true;
-        //enhance jump
-        defaultjumpVelocity = player.jumpVelocity;
-        player.jumpVelocity = player.jumpVelocity*amplifier;
+        if (player!=null)
+        {
+            player.redSerum = true;
+            //enhance jump
+            defaultjumpVelocity = player.jumpVelocity;
+            player.jumpVelocity = player.jumpVelocity * amplifier;
 
-        //despawn item
-        gameObject.GetComponent<SpriteRenderer>().sprite = null;
-        gameObject.GetComponent<Collider2D>().enabled = false;
-        timeIsRunning = true;
+            //despawn item
+            gameObject.GetComponent<SpriteRenderer>().sprite = null;
+            gameObject.GetComponent<Collider2D>().enabled = false;
+            timeIsRunning = true;
+        }
+        
     }
 
     private void Update()
