@@ -1688,7 +1688,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e451ad88b0f2f4da8ee5d3ba01f9cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 10
+  duration: 5
+  timeRemaining: 0
   timeIsRunning: 0
 --- !u!61 &1174667481
 BoxCollider2D:
@@ -1869,6 +1870,7 @@ MonoBehaviour:
   redSerum: 0
   blueSerum: 0
   yellowSerum: 0
+  activeSerum: []
 --- !u!212 &1521633862
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2578,9 +2580,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 168d96b66a01aa1459fe0c97a04e976b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amplifier: 1.8
-  timeRemaining: 10
+  duration: 10
+  timeRemaining: 0
   timeIsRunning: 0
+  amplifier: 1.8
 --- !u!1 &1838732590
 GameObject:
   m_ObjectHideFlags: 0
@@ -2638,9 +2641,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52cf7edc5e2a4ad43a6f2dd2991745ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMass: 15
-  timeRemaining: 10
+  duration: 20
+  timeRemaining: 0
   timeIsRunning: 0
+  playerMass: 15
 --- !u!212 &1838732593
 SpriteRenderer:
   m_ObjectHideFlags: 0
