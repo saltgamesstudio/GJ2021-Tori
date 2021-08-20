@@ -18,6 +18,7 @@ public class DrownArea : MonoBehaviour
                 return;
             }
             player.isDrowning = true;
+            Debug.Log("enterDrown");
         }
     }
 
@@ -27,6 +28,7 @@ public class DrownArea : MonoBehaviour
         if (player != null)
         {
             player.isDrowning = false;
+            Debug.Log("exitDrown");
         }
     }
 }

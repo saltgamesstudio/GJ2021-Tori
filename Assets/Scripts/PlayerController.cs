@@ -53,6 +53,7 @@ namespace Workshop
         private static readonly int ANIM_IsGround = Animator.StringToHash("isGround");
         private static readonly int ANIM_jump = Animator.StringToHash("jump");
         private static readonly int ANIM_inWater = Animator.StringToHash("inWater");
+        private static readonly int ANIM_isDrowning = Animator.StringToHash("isDrowning");
 
         [Header("Collider")]
         [SerializeField] private Collider2D groundCollider;
@@ -113,7 +114,10 @@ namespace Workshop
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             {
                 rigidbody2D.velocity = Vector2.up * jumpVelocity;
-                animator.SetTrigger(ANIM_jump);
+                if (!yellowSerum)
+                {
+                    animator.SetTrigger(ANIM_jump);
+                }
             }
 
             //betterJump function
@@ -144,6 +148,7 @@ namespace Workshop
             //timer
             if(blueSerum)
             {
+                animator.SetBool(ANIM_isDrowning, !isDrowning);
                 //death by suffocation
                 if (!isDrowning)
                 {
@@ -151,13 +156,16 @@ namespace Workshop
                     if (inWaterTreshold < 0f)
                     {
                         Debug.Log("ded by suffocation");
-                        isDrowning = true;
                     }
                 }
                 else
                 {
                     inWaterTreshold = defaultInWaterTreshold;
                 }
+            }
+            else
+            {
+                animator.SetBool(ANIM_isDrowning, isDrowning);
             }
             
             if(yellowSerum)
@@ -176,6 +184,8 @@ namespace Workshop
                     inWaterTreshold = defaultInWaterTreshold;
                 }
             }
+
+            
             
 
         }
