@@ -5,7 +5,12 @@ using UnityEngine;
 public class SerumBase : MonoBehaviour
 {
     [Header("Timer")]
-    [SerializeField] public float duration = 10f;
-    [SerializeField] public float timeRemaining = 10f;
+    [SerializeField] public float duration;
+    [SerializeField] public float timeRemaining;
     [SerializeField] public bool timeIsRunning = false;
+
+    private void Awake()
+    {
+        timeRemaining = duration;
+    }
 }
