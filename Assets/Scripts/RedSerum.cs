@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using Workshop;
 
-public class RedSerum : MonoBehaviour
+public class RedSerum : SerumBase
 {
     [SerializeField] private float amplifier = 1.8f;
     private float defaultjumpVelocity;
     private PlayerController player;
     private Sprite defaultskin;
-    [Header("Timer")]
-    [SerializeField] private float timeRemaining = 10f;
-    [SerializeField] private bool timeIsRunning = false;
+    
 
     private void Awake()
     {
@@ -24,6 +22,16 @@ public class RedSerum : MonoBehaviour
         if (player!=null)
         {
             player.redSerum = true;
+
+            if(player.activeSerum.Count > 0)
+            {
+                foreach(var serum in player.activeSerum)
+                {
+                    serum.timeRemaining = this.duration;
+                }
+            }
+            player.activeSerum.Add(this);
+
             //enhance jump
             defaultjumpVelocity = player.jumpVelocity;
             player.jumpVelocity = player.jumpVelocity * amplifier;

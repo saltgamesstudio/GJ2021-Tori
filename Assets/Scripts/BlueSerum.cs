@@ -3,13 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Workshop;
 
-public class BlueSerum : MonoBehaviour
+public class BlueSerum : SerumBase
 {
     private PlayerController player;
     private Sprite defaultskin;
-    [Header("Timer")]
-    [SerializeField] private float timeRemaining = 10f;
-    [SerializeField] private bool timeIsRunning = false;
     
 
     private void Awake()
@@ -24,7 +21,14 @@ public class BlueSerum : MonoBehaviour
         {
             player.blueSerum = true;
             player.isDrowning = false;
-
+            if (player.activeSerum.Count > 0)
+            {
+                foreach (var serum in player.activeSerum)
+                {
+                    serum.timeRemaining = this.duration;
+                }
+            }
+            player.activeSerum.Add(this);
             //despawn item
             gameObject.GetComponent<SpriteRenderer>().sprite = null;
             gameObject.GetComponent<Collider2D>().enabled = false;

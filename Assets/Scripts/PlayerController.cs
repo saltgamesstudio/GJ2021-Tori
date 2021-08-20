@@ -43,6 +43,7 @@ namespace Workshop
         [SerializeField] public bool redSerum = false;
         [SerializeField] public bool blueSerum = false;
         [SerializeField] public bool yellowSerum = false;
+        [SerializeField] public List<SerumBase> activeSerum;
 
 
 

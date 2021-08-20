@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Workshop;
 
-public class YellowSerum : MonoBehaviour
+public class YellowSerum : SerumBase
 {
     private PlayerController player;
     private Sprite defaultskin;
@@ -11,9 +11,6 @@ public class YellowSerum : MonoBehaviour
     private Rigidbody2D rigidbody;
 
     [SerializeField] private float playerMass;
-    [Header("Timer")]
-    [SerializeField] private float timeRemaining = 10f;
-    [SerializeField] private bool timeIsRunning = false;
 
 
     private void Awake()
@@ -29,7 +26,14 @@ public class YellowSerum : MonoBehaviour
             rigidbody = player.GetComponent<Rigidbody2D>();
             defaultMass = rigidbody.mass;
             rigidbody.mass = playerMass;
-
+            if (player.activeSerum.Count > 0)
+            {
+                foreach (var serum in player.activeSerum)
+                {
+                    serum.timeRemaining = this.duration;
+                }
+            }
+            player.activeSerum.Add(this);
             player.yellowSerum = true;
             //despawn item
             gameObject.GetComponent<SpriteRenderer>().sprite = null;
