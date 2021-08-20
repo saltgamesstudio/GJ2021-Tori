@@ -52,6 +52,11 @@ namespace Workshop
         private static readonly int ANIM_IsMovingX = Animator.StringToHash("isMovingX");
         private static readonly int ANIM_IsGround = Animator.StringToHash("isGround");
         private static readonly int ANIM_jump = Animator.StringToHash("jump");
+        private static readonly int ANIM_inWater = Animator.StringToHash("inWater");
+
+        [Header("Collider")]
+        [SerializeField] private Collider2D groundCollider;
+        [SerializeField] private Collider2D waterCollider;
 
 
 
@@ -121,6 +126,7 @@ namespace Workshop
                 rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
             }
             animator.SetFloat(ANIM_VelocityY, rigidbody2D.velocity.y);
+            animator.SetBool(ANIM_inWater, inWater);
 
             //ded by overdose
             if (redSerum && blueSerum && yellowSerum)
@@ -180,11 +186,16 @@ namespace Workshop
             if (inWater)
             {
                 rigidbody2D.velocity = new Vector2(moveDirection.x * speed / 3, rigidbody2D.velocity.y);
+                waterCollider.enabled = true;
+                groundCollider.enabled = false;
+
             }
             else
             {
                 //player movement speed on ground
                 rigidbody2D.velocity = new Vector2(moveDirection.x * speed, rigidbody2D.velocity.y);
+                waterCollider.enabled = false;
+                groundCollider.enabled = true;
             }
             
         }
