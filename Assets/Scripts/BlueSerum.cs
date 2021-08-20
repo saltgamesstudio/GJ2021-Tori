@@ -55,6 +55,7 @@ public class BlueSerum : SerumBase
                 gameObject.GetComponent<SpriteRenderer>().sprite = defaultskin;
                 gameObject.GetComponent<Collider2D>().enabled = true;
                 player.blueSerum = false;
+                player.activeSerum.Remove(this);
             }
         }
     }

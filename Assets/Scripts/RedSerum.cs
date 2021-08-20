@@ -40,6 +40,7 @@ public class RedSerum : SerumBase
             gameObject.GetComponent<SpriteRenderer>().sprite = null;
             gameObject.GetComponent<Collider2D>().enabled = false;
             timeIsRunning = true;
+            player.activeSerum.Remove(this);
         }
         
     }

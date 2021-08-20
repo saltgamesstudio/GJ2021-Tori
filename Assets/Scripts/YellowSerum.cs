@@ -64,6 +64,7 @@ public class YellowSerum : SerumBase
                 gameObject.GetComponent<SpriteRenderer>().sprite = defaultskin;
                 gameObject.GetComponent<Collider2D>().enabled = true;
                 player.yellowSerum = false;
+                player.activeSerum.Remove(this);
             }
         }
     }
