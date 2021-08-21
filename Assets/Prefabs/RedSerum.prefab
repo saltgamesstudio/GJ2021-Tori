@@ -124,7 +124,7 @@ MonoBehaviour:
   duration: 10
   timeRemaining: 0
   timeIsRunning: 0
-  tweenAmount: {x: 0, y: 2, z: 0}
+  tweenAmount: {x: 0, y: 0.2, z: 0}
   tweenDuration: 1
   amplifier: 1.8
   primaryColor: {r: 0.7411765, g: 0.27058825, b: 0.2901961, a: 1}
