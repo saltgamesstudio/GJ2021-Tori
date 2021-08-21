@@ -7,17 +7,20 @@ public class BlueSerum : SerumBase
 {
     private PlayerController player;
     private Sprite defaultskin;
-    
 
-    private void Awake()
-    {
-        defaultskin = GetComponent<SpriteRenderer>().sprite;
-    }
+
+    
+    [Header("Colors")]
+    [SerializeField] private Color primaryColor;
+    [SerializeField] private Color combiWithYellow;
+    [SerializeField] private Color combiWithRed;
+    private Color defaultColor;
 
     private void OnTriggerEnter2D(Collider2D othercollider)
     {
         player = othercollider.GetComponent<PlayerController>();
-        if(player!=null)
+        defaultskin = GetComponent<SpriteRenderer>().sprite;
+        if (player!=null)
         {
             player.blueSerum = true;
             player.isDrowning = false;
@@ -32,6 +35,19 @@ public class BlueSerum : SerumBase
             //despawn item
             gameObject.GetComponent<SpriteRenderer>().sprite = null;
             gameObject.GetComponent<Collider2D>().enabled = false;
+
+            defaultColor = player.defaultColor;
+            player.ChangeBraceletColor(primaryColor);
+            if (player.redSerum)
+            {
+                player.ChangeBraceletColor(combiWithRed);
+            }
+            if (player.yellowSerum)
+            {
+                player.ChangeBraceletColor(combiWithYellow);
+            }
+
+
             timeIsRunning = true;
         }
     }
@@ -56,6 +72,7 @@ public class BlueSerum : SerumBase
                 gameObject.GetComponent<Collider2D>().enabled = true;
                 player.blueSerum = false;
                 player.activeSerum.Remove(this);
+                player.ChangeBraceletColor(defaultColor);
             }
         }
     }

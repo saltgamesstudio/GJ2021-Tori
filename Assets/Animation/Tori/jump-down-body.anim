@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: swim-idle-body
+  m_Name: jump-down-body
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,25 +20,16 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 4423711972421260888, guid: 9cbc74b8a4a674446a0a8ba9406623c5,
-        type: 3}
-    - time: 0.13333334
-      value: {fileID: -9203206345719559069, guid: 9cbc74b8a4a674446a0a8ba9406623c5,
-        type: 3}
-    - time: 0.25
-      value: {fileID: -5421949392007544426, guid: 9cbc74b8a4a674446a0a8ba9406623c5,
-        type: 3}
-    - time: 0.38333333
-      value: {fileID: 5240183901062387411, guid: 9cbc74b8a4a674446a0a8ba9406623c5,
-        type: 3}
-    - time: 0.5
-      value: {fileID: -2184647093911112876, guid: 9cbc74b8a4a674446a0a8ba9406623c5,
-        type: 3}
-    - time: 0.6333333
-      value: {fileID: 6536965366323876135, guid: 9cbc74b8a4a674446a0a8ba9406623c5,
-        type: 3}
+      value: {fileID: 21300000, guid: 9ea852d46118c4541a9c7a18f197d51e, type: 3}
     attribute: m_Sprite
     path: 
+    classID: 212
+    script: {fileID: 0}
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: e12be7b04fac9c44fb2f7b0083ccbc58, type: 3}
+    attribute: m_Sprite
+    path: bracelet
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -55,24 +46,27 @@ AnimationClip:
       typeID: 212
       customType: 23
       isPPtrCurve: 1
+    - serializedVersion: 2
+      path: 2482403197
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 4423711972421260888, guid: 9cbc74b8a4a674446a0a8ba9406623c5, type: 3}
-    - {fileID: -9203206345719559069, guid: 9cbc74b8a4a674446a0a8ba9406623c5, type: 3}
-    - {fileID: -5421949392007544426, guid: 9cbc74b8a4a674446a0a8ba9406623c5, type: 3}
-    - {fileID: 5240183901062387411, guid: 9cbc74b8a4a674446a0a8ba9406623c5, type: 3}
-    - {fileID: -2184647093911112876, guid: 9cbc74b8a4a674446a0a8ba9406623c5, type: 3}
-    - {fileID: 6536965366323876135, guid: 9cbc74b8a4a674446a0a8ba9406623c5, type: 3}
+    - {fileID: 21300000, guid: 9ea852d46118c4541a9c7a18f197d51e, type: 3}
+    - {fileID: 21300000, guid: e12be7b04fac9c44fb2f7b0083ccbc58, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.65
+    m_StopTime: 0.016666668
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0

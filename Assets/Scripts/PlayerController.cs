@@ -8,6 +8,7 @@ namespace Workshop
     {
         private Rigidbody2D rigidbody2D;
         private Vector2 moveDirection;
+        [SerializeField] private SpriteRenderer braceletSprite;
         [SerializeField] private float speed = 0.1f;
 
         [Header("Foot")]
@@ -90,6 +91,7 @@ namespace Workshop
                 moveDirection = new Vector2(-1f, 0f);
                 animator.SetBool(ANIM_IsMovingX, true);
                 spriteRenderer.flipX = true;
+                braceletSprite.flipX = true;
             }
             
 
@@ -98,6 +100,7 @@ namespace Workshop
                 moveDirection = new Vector2(1f, 0f);
                 animator.SetBool(ANIM_IsMovingX, true);
                 spriteRenderer.flipX = false;
+                braceletSprite.flipX = false;
             }
 
             
@@ -186,6 +189,12 @@ namespace Workshop
             
 
         }
+        public void ChangeBraceletColor(Color color)
+        {
+            braceletSprite.color = color;
+        }
+
+        public Color defaultColor => spriteRenderer.color;
 
         private void FixedUpdate()
         {

@@ -10,10 +10,20 @@ public class YellowSerum : SerumBase
     private float defaultMass;
     private Rigidbody2D rigidbody;
     private float defaultJumpVelocity;
+    
+
 
     [SerializeField] private float playerMass;
     [SerializeField] private float debuffJump;
 
+    
+    [Header("Colors")]
+    [SerializeField] private Color primaryColor;
+    [SerializeField] private Color combiWithRed;
+    [SerializeField] private Color combiWithBlue;
+    private Color defaultColor;
+
+   
 
     private void OnTriggerEnter2D(Collider2D othercollider)
     {
@@ -41,6 +51,18 @@ public class YellowSerum : SerumBase
             //despawn item
             gameObject.GetComponent<SpriteRenderer>().sprite = null;
             gameObject.GetComponent<Collider2D>().enabled = false;
+
+            defaultColor = player.defaultColor;
+            player.ChangeBraceletColor(primaryColor);
+            if (player.redSerum)
+            {
+                player.ChangeBraceletColor(combiWithRed);
+            }
+            if (player.blueSerum)
+            {
+                player.ChangeBraceletColor(combiWithBlue);
+            }
+            
             timeIsRunning = true;
         }
         
@@ -69,6 +91,7 @@ public class YellowSerum : SerumBase
                 gameObject.GetComponent<Collider2D>().enabled = true;
                 player.yellowSerum = false;
                 player.activeSerum.Remove(this);
+                player.ChangeBraceletColor(defaultColor) ;
             }
         }
     }

@@ -255,6 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5036a4d9332f75d43b825ff05e115d79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  braceletSprite: {fileID: 3787787804462261443}
   speed: 10
   foot: {fileID: 6794162013903406896}
   leftfoot: {fileID: 6794162013466616930}
