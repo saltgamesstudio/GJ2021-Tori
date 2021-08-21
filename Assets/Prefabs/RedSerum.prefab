@@ -121,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 168d96b66a01aa1459fe0c97a04e976b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 10
+  duration: 5
   timeRemaining: 0
   timeIsRunning: 0
   tweenAmount: {x: 0, y: 0.2, z: 0}
