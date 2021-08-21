@@ -3322,8 +3322,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 739975220}
   m_HandleRect: {fileID: 739975219}
   m_Direction: 2
-  m_Value: 1.0000184
-  m_Size: 0.550387
+  m_Value: 1.000032
+  m_Size: 0.5419944
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3832,8 +3832,8 @@ CanvasGroup:
   m_GameObject: {fileID: 1224280179}
   m_Enabled: 1
   m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &1228312713
 GameObject:
@@ -4563,7 +4563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -492.00006, y: 274.99478}
+  m_AnchoredPosition: {x: -492.00006, y: 274.9907}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1527862562
@@ -5498,7 +5498,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.6
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
