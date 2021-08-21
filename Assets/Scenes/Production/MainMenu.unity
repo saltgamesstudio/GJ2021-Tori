@@ -1218,7 +1218,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2d98d45908395044f9f9b71343a3dc31, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f5b8d01ef30e830409b067cab513cd3e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1625,9 +1625,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.07450981, g: 0.38431373, b: 0.40392157, a: 1}
-    m_PressedColor: {r: 0.07450981, g: 0.38431373, b: 0.40392157, a: 1}
-    m_SelectedColor: {r: 0.074626215, g: 0.3843796, b: 0.4056604, a: 1}
+    m_HighlightedColor: {r: 0.7647059, g: 0.24705882, b: 0.23529412, a: 1}
+    m_PressedColor: {r: 0.7647059, g: 0.24705882, b: 0.23529412, a: 1}
+    m_SelectedColor: {r: 0.764151, g: 0.24779119, b: 0.23429158, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2187,9 +2187,9 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.07450981, g: 0.38431373, b: 0.40392157, a: 1}
-    m_PressedColor: {r: 0.07450981, g: 0.38431373, b: 0.40392157, a: 1}
-    m_SelectedColor: {r: 0.074626215, g: 0.3843796, b: 0.4056604, a: 1}
+    m_HighlightedColor: {r: 0.14901961, g: 0.5764706, b: 0.6039216, a: 1}
+    m_PressedColor: {r: 0.14901961, g: 0.5764706, b: 0.6039216, a: 1}
+    m_SelectedColor: {r: 0.14524741, g: 0.5742969, b: 0.6037736, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
