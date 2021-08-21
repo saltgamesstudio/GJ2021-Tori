@@ -13,7 +13,7 @@ public class RedSerum : SerumBase
     [Header("Colors")]
     [SerializeField] private Color primaryColor;
     [SerializeField] private Color combiWithYellow;
-    [SerializeField] private Color combiWithRed;
+    [SerializeField] private Color combiWithBlue;
     private Color defaultColor;
 
   
@@ -46,9 +46,9 @@ public class RedSerum : SerumBase
 
             defaultColor = player.defaultColor;
             player.ChangeBraceletColor(primaryColor);
-            if (player.redSerum)
+            if (player.blueSerum)
             {
-                player.ChangeBraceletColor(combiWithRed);
+                player.ChangeBraceletColor(combiWithBlue);
             }
             if (player.yellowSerum)
             {

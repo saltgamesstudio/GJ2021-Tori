@@ -98,7 +98,13 @@ MonoBehaviour:
   duration: 20
   timeRemaining: 0
   timeIsRunning: 0
+  tweenAmount: {x: 0, y: 0.2, z: 0}
+  tweenDuration: 1
   playerMass: 15
+  debuffJump: 0
+  primaryColor: {r: 0.83921576, g: 0.82745105, b: 0.41960788, a: 1}
+  combiWithRed: {r: 0.95686275, g: 0.69717795, b: 0.49019608, a: 1}
+  combiWithBlue: {r: 0.5594963, g: 0.9339623, b: 0.64591146, a: 1}
 --- !u!61 &2417670761931612758
 BoxCollider2D:
   m_ObjectHideFlags: 0
