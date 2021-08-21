@@ -37,6 +37,10 @@ public class MenuControll : MonoBehaviour
         {
             btnPlay.enabled = false;
             btnExit.enabled = false;
+            if (EventSystem.current.currentSelectedGameObject == null)
+            {
+                EventSystem.current.SetSelectedGameObject(StageButton);
+            }
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Overlay.SetTrigger("CloseOverlay");
@@ -46,6 +50,11 @@ public class MenuControll : MonoBehaviour
                 EventSystem.current.SetSelectedGameObject(null);
                 EventSystem.current.SetSelectedGameObject(Play);
             }
+        }
+
+        if (EventSystem.current.currentSelectedGameObject==null)
+        {
+            EventSystem.current.SetSelectedGameObject(Play);
         }
 
 
