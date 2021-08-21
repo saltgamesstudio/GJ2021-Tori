@@ -248,6 +248,17 @@ MonoBehaviour:
           m_StringArgument: Click
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4415973743183542593}
+        m_MethodName: PindahScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Level3
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &66346091
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,6 +421,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Click
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4415973743183542593}
+        m_MethodName: PindahScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Level2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &97145905
@@ -1125,6 +1147,17 @@ MonoBehaviour:
           m_StringArgument: Click
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 4415973743183542593}
+        m_MethodName: PindahScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Level4
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &725591334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1339,7 +1372,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Stage1
+          m_StringArgument: Level1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1034771483
@@ -2241,6 +2274,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   theText: {fileID: 1964461000}
+--- !u!1 &1701049970 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4415973742439241347, guid: 5870c80166774c14cb11936af18ce670,
+    type: 3}
+  m_PrefabInstance: {fileID: 4415973743183542592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1712556319
 GameObject:
   m_ObjectHideFlags: 0
@@ -2440,6 +2479,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Click
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4415973743183542593}
+        m_MethodName: PindahScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Level5
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1811960010
@@ -3177,6 +3227,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4415973742439241349, guid: 5870c80166774c14cb11936af18ce670,
         type: 3}
+      propertyPath: PauseUI
+      value: 
+      objectReference: {fileID: 618460390868376061, guid: 1755d40496ddfac4994853da1756e037,
+        type: 3}
+    - target: {fileID: 4415973742439241349, guid: 5870c80166774c14cb11936af18ce670,
+        type: 3}
+      propertyPath: SceneLoader
+      value: 
+      objectReference: {fileID: 1701049970}
+    - target: {fileID: 4415973742439241349, guid: 5870c80166774c14cb11936af18ce670,
+        type: 3}
       propertyPath: transitionTime
       value: 1
       objectReference: {fileID: 0}
@@ -3188,7 +3249,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 4415973743183542592}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1701049970}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b758daff70a69094f8d85fffe68babf4, type: 3}
