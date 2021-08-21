@@ -124,3 +124,8 @@ MonoBehaviour:
   duration: 5
   timeRemaining: 0
   timeIsRunning: 0
+  tweenAmount: {x: 0, y: 0.2, z: 0}
+  tweenDuration: 1
+  primaryColor: {r: 0.34509805, g: 0.3921569, b: 0.61960787, a: 1}
+  combiWithYellow: {r: 0.2950338, g: 0.735849, b: 0.3955782, a: 1}
+  combiWithRed: {r: 0.7871168, g: 0.40450338, b: 0.8490566, a: 1}
