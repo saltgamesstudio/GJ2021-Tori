@@ -55,11 +55,6 @@ namespace Workshop
         private static readonly int ANIM_inWater = Animator.StringToHash("inWater");
         private static readonly int ANIM_isDrowning = Animator.StringToHash("isDrowning");
 
-        [Header("Collider")]
-        [SerializeField] private Collider2D groundCollider;
-        [SerializeField] private Collider2D waterCollider;
-
-
 
         private void Awake()
         {
@@ -149,6 +144,7 @@ namespace Workshop
             if(blueSerum)
             {
                 animator.SetBool(ANIM_isDrowning, !isDrowning);
+                
                 //death by suffocation
                 if (!isDrowning)
                 {
@@ -166,6 +162,7 @@ namespace Workshop
             else
             {
                 animator.SetBool(ANIM_isDrowning, isDrowning);
+                
             }
             
             if(yellowSerum)
@@ -196,16 +193,14 @@ namespace Workshop
             if (inWater)
             {
                 rigidbody2D.velocity = new Vector2(moveDirection.x * speed / 3, rigidbody2D.velocity.y);
-                waterCollider.enabled = true;
-                groundCollider.enabled = false;
+                
 
             }
             else
             {
                 //player movement speed on ground
                 rigidbody2D.velocity = new Vector2(moveDirection.x * speed, rigidbody2D.velocity.y);
-                waterCollider.enabled = false;
-                groundCollider.enabled = true;
+                
             }
             
         }
