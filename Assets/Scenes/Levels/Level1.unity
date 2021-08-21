@@ -131,7 +131,7 @@ GameObject:
   m_Component:
   - component: {fileID: 254549646}
   - component: {fileID: 254549647}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dinding (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,7 +188,7 @@ GameObject:
   m_Component:
   - component: {fileID: 435488307}
   - component: {fileID: 435488308}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dinding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1982,7 +1982,7 @@ GameObject:
   m_Component:
   - component: {fileID: 889289394}
   - component: {fileID: 889289395}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dinding (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2039,7 +2039,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1174423660}
   - component: {fileID: 1174423661}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dinding (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2096,7 +2096,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1544423815}
   - component: {fileID: 1544423816}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dinding (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2152,7 +2152,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1601704665}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dinding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2190,7 +2190,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1738596013}
   - component: {fileID: 1738596014}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dinding (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2247,7 +2247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2055571185}
   - component: {fileID: 2055571186}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Dinding (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
