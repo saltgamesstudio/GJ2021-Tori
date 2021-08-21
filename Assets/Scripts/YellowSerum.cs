@@ -9,23 +9,26 @@ public class YellowSerum : SerumBase
     private Sprite defaultskin;
     private float defaultMass;
     private Rigidbody2D rigidbody;
+    private float defaultJumpVelocity;
 
     [SerializeField] private float playerMass;
+    [SerializeField] private float debuffJump;
 
-
-    private void Awake()
-    {
-        defaultskin = GetComponent<SpriteRenderer>().sprite;
-    }
 
     private void OnTriggerEnter2D(Collider2D othercollider)
     {
+        defaultskin = GetComponent<SpriteRenderer>().sprite;
         player = othercollider.GetComponent<PlayerController>();
         if (player!=null)
         {
             rigidbody = player.GetComponent<Rigidbody2D>();
+            //amplify mass
             defaultMass = rigidbody.mass;
             rigidbody.mass = playerMass;
+            //debuff jump
+            defaultJumpVelocity = player.jumpVelocity;
+            player.jumpVelocity = debuffJump;
+
             if (player.activeSerum.Count > 0)
             {
                 foreach (var serum in player.activeSerum)
@@ -59,11 +62,13 @@ public class YellowSerum : SerumBase
                 timeIsRunning = false;
                 timeRemaining = 10f;
                 rigidbody.mass = defaultMass;
+                player.jumpVelocity = defaultJumpVelocity;
 
                 //respawn item
                 gameObject.GetComponent<SpriteRenderer>().sprite = defaultskin;
                 gameObject.GetComponent<Collider2D>().enabled = true;
                 player.yellowSerum = false;
+                player.activeSerum.Remove(this);
             }
         }
     }

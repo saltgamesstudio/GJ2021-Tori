@@ -45,11 +45,22 @@ namespace Workshop
         [SerializeField] public bool yellowSerum = false;
         [SerializeField] public List<SerumBase> activeSerum;
 
+        [Header("Animation")]
+        private Animator animator;
+        private SpriteRenderer spriteRenderer;
+        private static readonly int ANIM_VelocityY = Animator.StringToHash("velocityY");
+        private static readonly int ANIM_IsMovingX = Animator.StringToHash("isMovingX");
+        private static readonly int ANIM_IsGround = Animator.StringToHash("isGround");
+        private static readonly int ANIM_jump = Animator.StringToHash("jump");
+        private static readonly int ANIM_inWater = Animator.StringToHash("inWater");
+        private static readonly int ANIM_isDrowning = Animator.StringToHash("isDrowning");
 
 
         private void Awake()
         {
             rigidbody2D = GetComponent<Rigidbody2D>();
+            spriteRenderer = GetComponent<SpriteRenderer>();
+            animator = GetComponent<Animator>();
             defaultInWaterTreshold = inWaterTreshold;
             defaultMass = rigidbody2D.mass;
         }
@@ -63,48 +74,61 @@ namespace Workshop
             if (Input.GetKeyUp(KeyCode.A))
             {
                 moveDirection = new Vector2(0f, 0f);
+                animator.SetBool(ANIM_IsMovingX, false);
             }
 
             if (Input.GetKeyUp(KeyCode.D))
             {
                 moveDirection = new Vector2(0f, 0f);
+                animator.SetBool(ANIM_IsMovingX, false);
+
             }
 
             //prevent stick to wall
             if (Input.GetKey(KeyCode.A) && !leftTouched)
             {
                 moveDirection = new Vector2(-1f, 0f);
+                animator.SetBool(ANIM_IsMovingX, true);
+                spriteRenderer.flipX = true;
             }
-            else
-            {
-                moveDirection = new Vector2(0f, 0f);
-            }
+            
 
             if (Input.GetKey(KeyCode.D) && !rightTouched)
             {
                 moveDirection = new Vector2(1f, 0f);
+                animator.SetBool(ANIM_IsMovingX, true);
+                spriteRenderer.flipX = false;
             }
 
             
 
             //jump function
             isGrounded = Physics2D.OverlapCircle(foot.position, radius, mask) != null ? true : false;
+            animator.SetBool(ANIM_IsGround, isGrounded);
+
             if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
             {
                 rigidbody2D.velocity = Vector2.up * jumpVelocity;
+                if (!yellowSerum)
+                {
+                    animator.SetTrigger(ANIM_jump);
+                }
             }
 
             //betterJump function
             if(rigidbody2D.velocity.y < 0f)
             {
                 rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-            }else if(rigidbody2D.velocity.y > 0f && Input.GetKeyUp(KeyCode.Space))
+            }
+            else if(rigidbody2D.velocity.y > 0f && Input.GetKeyUp(KeyCode.Space))
             {
                 rigidbody2D.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
             }
-            
+            animator.SetFloat(ANIM_VelocityY, rigidbody2D.velocity.y);
+            animator.SetBool(ANIM_inWater, inWater);
+
             //ded by overdose
-            if(redSerum && blueSerum && yellowSerum)
+            if (redSerum && blueSerum && yellowSerum)
             {
                 Debug.Log("You're ded from overdose");
             }
@@ -119,6 +143,8 @@ namespace Workshop
             //timer
             if(blueSerum)
             {
+                animator.SetBool(ANIM_isDrowning, !isDrowning);
+                
                 //death by suffocation
                 if (!isDrowning)
                 {
@@ -126,13 +152,17 @@ namespace Workshop
                     if (inWaterTreshold < 0f)
                     {
                         Debug.Log("ded by suffocation");
-                        isDrowning = true;
                     }
                 }
                 else
                 {
                     inWaterTreshold = defaultInWaterTreshold;
                 }
+            }
+            else
+            {
+                animator.SetBool(ANIM_isDrowning, isDrowning);
+                
             }
             
             if(yellowSerum)
@@ -151,6 +181,8 @@ namespace Workshop
                     inWaterTreshold = defaultInWaterTreshold;
                 }
             }
+
+            
             
 
         }
@@ -161,11 +193,14 @@ namespace Workshop
             if (inWater)
             {
                 rigidbody2D.velocity = new Vector2(moveDirection.x * speed / 3, rigidbody2D.velocity.y);
+                
+
             }
             else
             {
                 //player movement speed on ground
                 rigidbody2D.velocity = new Vector2(moveDirection.x * speed, rigidbody2D.velocity.y);
+                
             }
             
         }
