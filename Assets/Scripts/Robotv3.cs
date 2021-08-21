@@ -15,6 +15,7 @@ public class Robotv3 : MonoBehaviour
     [SerializeField] private bool moveVertical;
     [SerializeField] private bool fly;
 
+
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
@@ -98,7 +99,8 @@ public class Robotv3 : MonoBehaviour
             }
             else
             {
-                Debug.Log("You're ded");
+                //TODO : Change to Proper UI Image
+                player.Die();
             }
         }
     }

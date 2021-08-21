@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 namespace Workshop
 {
@@ -133,13 +135,13 @@ namespace Workshop
             //ded by overdose
             if (redSerum && blueSerum && yellowSerum)
             {
-                Debug.Log("You're ded from overdose");
+                Die();
             }
 
             //death by fall
             if (rigidbody2D.velocity.y <= heightTreshold && isGrounded)
             {
-                Debug.Log("ded by fall");
+                Die();
             }
 
 
@@ -154,7 +156,7 @@ namespace Workshop
                     inWaterTreshold -= Time.deltaTime;
                     if (inWaterTreshold < 0f)
                     {
-                        Debug.Log("ded by suffocation");
+                        Die();
                     }
                 }
                 else
@@ -176,7 +178,7 @@ namespace Workshop
                     inWaterTreshold -= Time.deltaTime;
                     if (inWaterTreshold < 0f)
                     {
-                        Debug.Log("ded by drowning");
+                        Die();
                     }
                 }
                 else
@@ -221,6 +223,11 @@ namespace Workshop
             Gizmos.DrawCube(rightfoot.position, size);
         }
 
+        public void Die()
+        {
+            //TODO : Change To Proper UI for now only reload current level
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
 
     }
 
