@@ -577,6 +577,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2409720130080524138, guid: 1f4c2f7f9c26bd84a83ab8faae6b2e58,
         type: 3}
+      propertyPath: duration
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2409720130080524138, guid: 1f4c2f7f9c26bd84a83ab8faae6b2e58,
+        type: 3}
       propertyPath: tweenAmount.y
       value: 0.2
       objectReference: {fileID: 0}
