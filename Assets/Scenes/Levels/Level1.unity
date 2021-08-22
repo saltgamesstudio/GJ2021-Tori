@@ -1479,6 +1479,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6794162013346359739, guid: 5d72c925636849841b0d7eaedf409823,
         type: 3}
+      propertyPath: inWaterTreshold
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794162013346359739, guid: 5d72c925636849841b0d7eaedf409823,
+        type: 3}
       propertyPath: lowJumpMultiplier
       value: 10
       objectReference: {fileID: 0}
