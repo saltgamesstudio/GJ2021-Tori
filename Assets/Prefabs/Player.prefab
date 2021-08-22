@@ -271,9 +271,9 @@ MonoBehaviour:
     m_Bits: 512
   leftTouched: 0
   rightTouched: 0
-  jumpVelocity: 12
+  jumpVelocity: 8
   fallMultiplier: 2.5
-  lowJumpMultiplier: 8
+  lowJumpMultiplier: 10
   heightTreshold: -18
   haveKey: 0
   inWater: 0
