@@ -102,6 +102,7 @@ MonoBehaviour:
   tweenDuration: 1
   playerMass: 15
   debuffJump: 0
+  debuffSpeed: 1.5
   primaryColor: {r: 0.83921576, g: 0.82745105, b: 0.41960788, a: 1}
   combiWithRed: {r: 0.95686275, g: 0.69717795, b: 0.49019608, a: 1}
   combiWithBlue: {r: 0.5594963, g: 0.9339623, b: 0.64591146, a: 1}

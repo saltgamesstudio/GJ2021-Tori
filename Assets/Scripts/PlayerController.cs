@@ -11,7 +11,7 @@ namespace Workshop
         private Rigidbody2D rigidbody2D;
         private Vector2 moveDirection;
         [SerializeField] private SpriteRenderer braceletSprite;
-        [SerializeField] private float speed = 0.1f;
+        [SerializeField] public float speed = 0.1f;
 
         [Header("Foot")]
         [SerializeField] private Transform foot;
@@ -79,21 +79,20 @@ namespace Workshop
             }
 
             //left & right walk direction
-            if (Input.GetKeyUp(KeyCode.A))
+            if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.LeftArrow))
             {
                 moveDirection = new Vector2(0f, 0f);
                 animator.SetBool(ANIM_IsMovingX, false);
             }
 
-            if (Input.GetKeyUp(KeyCode.D))
+            if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.RightArrow))
             {
                 moveDirection = new Vector2(0f, 0f);
                 animator.SetBool(ANIM_IsMovingX, false);
-
             }
 
             //prevent stick to wall
-            if (Input.GetKey(KeyCode.A) && !leftTouched)
+            if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !leftTouched)
             {
                 moveDirection = new Vector2(-1f, 0f);
                 animator.SetBool(ANIM_IsMovingX, true);
@@ -102,7 +101,7 @@ namespace Workshop
             }
             
 
-            if (Input.GetKey(KeyCode.D) && !rightTouched)
+            if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !rightTouched)
             {
                 moveDirection = new Vector2(1f, 0f);
                 animator.SetBool(ANIM_IsMovingX, true);
@@ -156,7 +155,7 @@ namespace Workshop
                 animator.SetBool(ANIM_isDrowning, !isDrowning);
                 
                 //death by suffocation
-                if (!isDrowning)
+                if (!inWater)
                 {
                     inWaterTreshold -= Time.deltaTime;
                     if (inWaterTreshold < 0f)
@@ -178,7 +177,7 @@ namespace Workshop
             if(yellowSerum)
             {
                 //death by drowning
-                if (isDrowning)
+                if (inWater)
                 {
                     inWaterTreshold -= Time.deltaTime;
                     if (inWaterTreshold < 0f)

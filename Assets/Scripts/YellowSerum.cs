@@ -7,16 +7,18 @@ public class YellowSerum : SerumBase
 {
     private PlayerController player;
     private Sprite defaultskin;
-    private float defaultMass;
+    [HideInInspector] public float defaultMass;
+    [HideInInspector] public float defaultSpeed;
     private Rigidbody2D rigidbody;
-    private float defaultJumpVelocity;
+    [HideInInspector] public float defaultJumpVelocity;
     
 
 
     [SerializeField] private float playerMass;
     [SerializeField] private float debuffJump;
+    [SerializeField] private float debuffSpeed;
 
-    
+
     [Header("Colors")]
     [SerializeField] private Color primaryColor;
     [SerializeField] private Color combiWithRed;
@@ -38,12 +40,25 @@ public class YellowSerum : SerumBase
             //debuff jump
             defaultJumpVelocity = player.jumpVelocity;
             player.jumpVelocity = debuffJump;
+            //debuff movement speed
+            defaultSpeed = player.speed;
+            player.speed = debuffSpeed;
 
             if (player.activeSerum.Count > 0)
             {
                 foreach (var serum in player.activeSerum)
                 {
                     serum.timeRemaining = this.duration;
+                    if (serum is RedSerum)
+                    {
+                        player.jumpVelocity = (serum as RedSerum).defaultjumpVelocity;
+                        defaultJumpVelocity = (serum as RedSerum).defaultjumpVelocity;
+                    }
+                    if (serum is BlueSerum)
+                    {
+                        player.jumpVelocity = defaultJumpVelocity;
+                        player.speed = defaultSpeed;
+                    }
                 }
             }
             player.activeSerum.Add(this);
@@ -85,6 +100,7 @@ public class YellowSerum : SerumBase
                 timeRemaining = 10f;
                 rigidbody.mass = defaultMass;
                 player.jumpVelocity = defaultJumpVelocity;
+                player.speed = defaultSpeed;
 
                 //respawn item
                 gameObject.GetComponent<SpriteRenderer>().sprite = defaultskin;
