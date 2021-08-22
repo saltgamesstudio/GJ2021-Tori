@@ -8,12 +8,15 @@ public class Door : MonoBehaviour
 {
     [SerializeField] private string nextScene;
 
+    [SerializeField] private GameManager gameManager;
+
     private void OnTriggerEnter2D(Collider2D othercollider)
     {
         var player = othercollider.GetComponent<PlayerController>();
         if(player.haveKey == true)
         {
             SceneManager.LoadScene(nextScene);
+            gameManager.WinLevel();
         }
             
             
