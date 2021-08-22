@@ -6,24 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Production/MainMenu.unity
+    path: Assets/Prefabs/Scenes/Production/MainMenu.unity
     guid: f4837e99c1fffca44a7ae59f4046c3ce
   - enabled: 1
-    path: Assets/Scenes/Levels/Level1.unity
+    path: Assets/Prefabs/Scenes/Levels/Level1.unity
     guid: fb2c856fbcbe6b84680e668575d2912c
   - enabled: 1
-    path: Assets/Scenes/Levels/Level2.unity
+    path: Assets/Prefabs/Scenes/Levels/Level2.unity
     guid: 4ec923d7e5823164a835849599dfd9d9
   - enabled: 1
-    path: Assets/Scenes/Levels/Level3.unity
+    path: Assets/Prefabs/Scenes/Levels/Level3.unity
     guid: e8683e089deb60a4ebc1440aa9213722
   - enabled: 1
-    path: Assets/Scenes/Levels/Level4.unity
+    path: Assets/Prefabs/Scenes/Levels/Level4.unity
     guid: 6da8b32efb6200646860782242112b13
   - enabled: 1
-    path: Assets/Scenes/Levels/Level5.unity
+    path: Assets/Prefabs/Scenes/Levels/Level5.unity
     guid: f8b09f20babca3a4da40612b36032502
   - enabled: 1
-    path: Assets/Scenes/Production/Stage1.unity
+    path: Assets/Prefabs/Scenes/Production/Stage1.unity
     guid: ec0d8f60cbdba5140bbe9d3482447330
   m_configObjects: {}

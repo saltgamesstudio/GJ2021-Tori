@@ -3,15 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class PauseController : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private bool pauseState;
     [SerializeField] private Animator Overlay;
     [SerializeField] private GameObject buttonPause;
     [SerializeField] private Button buttonESC;
     [SerializeField] private Button buttonR;
+    [SerializeField] private AudioSource bgm;
+
+    public static bool gameIsPaused;
 
     void Start()
     {
@@ -21,7 +24,16 @@ public class PauseController : MonoBehaviour
     public void PauseBtn()
     {
         Overlay.SetTrigger("StartPause");
-        pauseState = true;
+        gameIsPaused = true;
+        Time.timeScale = 0;
+        bgm.volume = 0.4f;
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1;
+        gameIsPaused = false;
+        bgm.volume = 1f;
     }
 
 
@@ -29,15 +41,18 @@ public class PauseController : MonoBehaviour
     void Update()
     {
         
-        if (pauseState)
+        if (gameIsPaused)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
-            {
+            { 
                 Overlay.SetTrigger("StopPause");
-                pauseState = false;
+                gameIsPaused = false;
                 buttonESC.enabled = true;
                 buttonR.enabled = true;
                 EventSystem.current.SetSelectedGameObject(null);
+                Time.timeScale = 1;
+                bgm.volume = 1f;
+
 
             }
         }
@@ -45,13 +60,18 @@ public class PauseController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                
                 Overlay.SetTrigger("StartPause");
-                pauseState = true;
+                gameIsPaused = true;
                 buttonESC.enabled = false;
                 buttonR.enabled = false;
                 EventSystem.current.SetSelectedGameObject(buttonPause);
+                Time.timeScale = 0;
+                bgm.volume = 0.4f;
+            }
 
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }
 

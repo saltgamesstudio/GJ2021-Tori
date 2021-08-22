@@ -12,6 +12,7 @@ public class MenuControll : MonoBehaviour
     [SerializeField] private GameObject Play;
     [SerializeField] private GameObject Exit;
     [SerializeField] private GameObject StageButton;
+    [SerializeField] private AudioSource AudioOpenOverlay;
 
     private Button btnPlay,btnExit;
     void Start()
@@ -24,6 +25,7 @@ public class MenuControll : MonoBehaviour
     {
         Overlay.SetTrigger("OpenOverlay");
         menuState = true;
+        AudioOpenOverlay.Play();
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(StageButton);
     }

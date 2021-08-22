@@ -7,11 +7,8 @@ public class SceneController : MonoBehaviour
 {
     [SerializeField] private Animator transition;
     [SerializeField] private float transitionTime=1f;
-    [SerializeField] private GameObject PauseUI;
     public void PindahScene(string scene)
     {
-        var ui = Instantiate(PauseUI, new Vector3(0, 0, 0), Quaternion.identity);
-        DontDestroyOnLoad(ui);
         StartCoroutine(LoadScene(scene));
     }
 

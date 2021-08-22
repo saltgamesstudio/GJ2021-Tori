@@ -73,6 +73,11 @@ namespace Workshop
             leftTouched = Physics2D.OverlapBox(leftfoot.position, new Vector2(size.x, size.y), 0, maskDinding) != null ? true : false;
             rightTouched = Physics2D.OverlapBox(rightfoot.position, new Vector2(size.x, size.y), 0, maskDinding) != null ? true : false;
 
+            if (PauseController.gameIsPaused)
+            {
+                return;
+            }
+
             //left & right walk direction
             if (Input.GetKeyUp(KeyCode.A))
             {
