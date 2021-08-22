@@ -7,8 +7,10 @@ public class BlueSerum : SerumBase
 {
     private PlayerController player;
     private Sprite defaultskin;
+    public float defaultMass;
+    private Rigidbody2D rigidbody;
 
-
+    [SerializeField] private float playerMass;
     
     [Header("Colors")]
     [SerializeField] private Color primaryColor;
@@ -22,13 +24,30 @@ public class BlueSerum : SerumBase
         defaultskin = GetComponent<SpriteRenderer>().sprite;
         if (player!=null)
         {
+            rigidbody = player.GetComponent<Rigidbody2D>();
             player.blueSerum = true;
             player.isDrowning = false;
+            //amplify mass
+            defaultMass = rigidbody.mass;
+            rigidbody.mass = playerMass;
+
             if (player.activeSerum.Count > 0)
             {
                 foreach (var serum in player.activeSerum)
                 {
                     serum.timeRemaining = this.duration;
+                    //kalau sebelumnya sudha ada yellow serum maka jump velocity menjadi normal, speed jadi normal
+                    if (serum is YellowSerum)
+                    {
+                        player.jumpVelocity = (serum as YellowSerum).defaultJumpVelocity;
+                        player.speed = (serum as YellowSerum).defaultSpeed;
+                        //rigidbody.mass = (serum as YellowSerum).defaultMass;
+                    }
+                    //kalau sebelumnya sudah ada redserum maka mass reset
+                    if (serum is RedSerum)
+                    {
+                        rigidbody.mass = defaultMass;
+                    }
                 }
             }
             player.activeSerum.Add(this);
@@ -71,6 +90,7 @@ public class BlueSerum : SerumBase
                 gameObject.GetComponent<SpriteRenderer>().sprite = defaultskin;
                 gameObject.GetComponent<Collider2D>().enabled = true;
                 player.blueSerum = false;
+                rigidbody.mass = defaultMass;
                 player.activeSerum.Remove(this);
                 player.ChangeBraceletColor(defaultColor);
             }

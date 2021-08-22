@@ -277,7 +277,7 @@ MonoBehaviour:
   heightTreshold: -18
   haveKey: 0
   inWater: 0
-  inWaterTreshold: 5
+  inWaterTreshold: 10
   isDrowning: 0
   redSerum: 0
   blueSerum: 0

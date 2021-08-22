@@ -6,7 +6,7 @@ using Workshop;
 public class RedSerum : SerumBase
 {
     [SerializeField] private float amplifier = 1.8f;
-    private float defaultjumpVelocity;
+    public float defaultjumpVelocity;
     private PlayerController player;
     private Sprite defaultskin;
             
@@ -27,18 +27,24 @@ public class RedSerum : SerumBase
         {
             player.redSerum = true;
 
-            if(player.activeSerum.Count > 0)
-            {
-                foreach(var serum in player.activeSerum)
-                {
-                    serum.timeRemaining = this.duration;
-                }
-            }
-            player.activeSerum.Add(this);
-
             //enhance jump
             defaultjumpVelocity = player.jumpVelocity;
             player.jumpVelocity = player.jumpVelocity * amplifier;
+
+            if (player.activeSerum.Count > 0)
+            {
+                foreach (var serum in player.activeSerum)
+                {
+                    serum.timeRemaining = this.duration;
+                    //kalau sebelumnya sudah ada yellow serum maka jump velocity menjadi normal
+                    if (serum is YellowSerum)
+                    {
+                        player.jumpVelocity = (serum as YellowSerum).defaultJumpVelocity;
+                    }
+                    
+                }
+            }
+            player.activeSerum.Add(this);
 
             //despawn item
             gameObject.GetComponent<SpriteRenderer>().sprite = null;
