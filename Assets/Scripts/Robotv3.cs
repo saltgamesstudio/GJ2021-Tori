@@ -100,7 +100,7 @@ public class Robotv3 : MonoBehaviour
             else
             {
                 //TODO : Change to Proper UI Image
-                player.Die();
+                player.Die("Death by Robot");
             }
         }
     }

@@ -59,6 +59,7 @@ namespace Workshop
         private static readonly int ANIM_isDrowning = Animator.StringToHash("isDrowning");
 
 
+
         private void Awake()
         {
             rigidbody2D = GetComponent<Rigidbody2D>();
@@ -74,6 +75,11 @@ namespace Workshop
             rightTouched = Physics2D.OverlapBox(rightfoot.position, new Vector2(size.x, size.y), 0, maskDinding) != null ? true : false;
 
             if (PauseController.gameIsPaused)
+            {
+                return;
+            }
+
+            if (DeathScreenController.isDead)
             {
                 return;
             }
@@ -139,13 +145,13 @@ namespace Workshop
             //ded by overdose
             if (redSerum && blueSerum && yellowSerum)
             {
-                Die();
+                Die("Death by Overdose");
             }
 
             //death by fall
             if (rigidbody2D.velocity.y <= heightTreshold && isGrounded)
             {
-                Die();
+                Die("Death by Fall");
             }
 
 
@@ -160,7 +166,7 @@ namespace Workshop
                     inWaterTreshold -= Time.deltaTime;
                     if (inWaterTreshold < 0f)
                     {
-                        Die();
+                        Die("Death by Suffocation");
                     }
                 }
                 else
@@ -182,7 +188,7 @@ namespace Workshop
                     inWaterTreshold -= Time.deltaTime;
                     if (inWaterTreshold < 0f)
                     {
-                        Die();
+                        Die("Death by Drowning");
                     }
                 }
                 else
@@ -227,10 +233,12 @@ namespace Workshop
             Gizmos.DrawCube(rightfoot.position, size);
         }
 
-        public void Die()
+        public void Die(string cause)
         {
             //TODO : Change To Proper UI for now only reload current level
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            DeathScreenController.causeDeath = cause;
+            DeathScreenController.isDead = true;
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
     }

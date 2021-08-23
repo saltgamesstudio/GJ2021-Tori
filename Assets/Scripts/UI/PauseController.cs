@@ -58,6 +58,10 @@ public class PauseController : MonoBehaviour
         }
         else
         {
+            if (DeathScreenController.isDead)
+            {
+                return;
+            }
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 Overlay.SetTrigger("StartPause");
