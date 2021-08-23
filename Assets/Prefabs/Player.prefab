@@ -256,7 +256,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   braceletSprite: {fileID: 3787787804462261443}
-  speed: 10
+  speed: 5
   foot: {fileID: 6794162013903406896}
   leftfoot: {fileID: 6794162013466616930}
   rightfoot: {fileID: 6794162013099609114}
